@@ -10,13 +10,17 @@
 
 @section('main')
     <div class="card card-primary">
+        <!--Title-->
         <div class="card-header">
             <h4>Register</h4>
         </div>
 
+        <!--Body-->
         <div class="card-body">
+            <!--Form-->
             <form method="POST">
                 @csrf
+                <!--Name-->
                 <div class="row">
                     <div class="form-group col-12">
                         <label for="name">Name</label>
@@ -33,6 +37,7 @@
                     </div>
                 </div>
 
+                <!--Email-->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email"
@@ -47,6 +52,7 @@
                     @enderror
                 </div>
 
+                <!--Password-->
                 <div class="row">
                     <div class="form-group col-12">
                         <label for="password"
@@ -66,6 +72,7 @@
 
                 </div>
 
+                <!--Password Confirmation-->
                 <div class="row">
                     <div class="form-group col-12">
                         <label for="password2"
@@ -77,6 +84,7 @@
                     </div>
                 </div>
 
+                <!--Button Register-->
                 <div class="form-group">
                     <button type="submit"
                         class="btn btn-primary btn-lg btn-block">

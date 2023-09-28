@@ -8,13 +8,19 @@
 
 @section('main')
     <div class="card card-primary">
+        <!--Title-->
         <div class="card-header">
             <h4>Reset Password</h4>
         </div>
 
+        <!--Body-->
         <div class="card-body">
+            <!--Text-->
             <p class="text-muted">We will send a link to reset your password</p>
+
+            <!--Form-->
             <form method="POST">
+                <!--Email-->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email"
@@ -26,6 +32,7 @@
                         autofocus>
                 </div>
 
+                <!--Password-->
                 <div class="form-group">
                     <label for="password">New Password</label>
                     <input id="password"
@@ -42,6 +49,7 @@
                     </div>
                 </div>
 
+                <!--Confirm Password-->
                 <div class="form-group">
                     <label for="password-confirm">Confirm Password</label>
                     <input id="password-confirm"
@@ -52,6 +60,7 @@
                         required>
                 </div>
 
+                <!--Button Reset Password-->
                 <div class="form-group">
                     <button type="submit"
                         class="btn btn-primary btn-lg btn-block"

@@ -10,16 +10,20 @@
 
 @section('main')
     <div class="card card-primary">
+        <!--Title-->
         <div class="card-header">
             <h4>Login</h4>
         </div>
 
+        <!--Body-->
         <div class="card-body">
+            <!--Form-->
             <form method="POST"
                 action="{{ route('login') }}"
                 class="needs-validation"
                 novalidate="">
                 @csrf
+                <!--Email-->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email"
@@ -31,9 +35,9 @@
                             {{ $message }}
                         </div>
                     @enderror
-
                 </div>
 
+                <!--Password-->
                 <div class="form-group">
                     <div class="d-block">
                         <label for="password"
@@ -59,6 +63,7 @@
                     @enderror
                 </div>
 
+                <!--Login Button-->
                 <div class="form-group">
                     <button type="submit"
                         class="btn btn-primary btn-lg btn-block"
@@ -67,10 +72,10 @@
                     </button>
                 </div>
             </form>
-
-
         </div>
     </div>
+
+    <!--Create Account-->
     <div class="text-muted mt-5 text-center">
         Don't have an account? <a href="{{route('register')}}">Create One</a>
     </div>
