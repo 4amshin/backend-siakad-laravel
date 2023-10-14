@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('dosen_id')->constrained('users');
             $table->string('title');
-            $table->bigInteger('lecturer_id')->unsigned();
+            $table->string('semester');
+            $table->string('tahun_akademik');
+            $table->integer('sks');
+            $table->string('kode_matkul');
+            $table->string('deskripsi');
             $table->timestamps();
 
-            $table->foreign('lecturer_id', 'lecturerId_foreign')->references('id')->on('users');
+            // $table->foreign('dosen_id', 'dosenid_foreign')->references('id')->on('users');
         });
     }
 

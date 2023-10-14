@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Khs>
  */
-class ScheduleFactory extends Factory
+class KhsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,19 +16,20 @@ class ScheduleFactory extends Factory
      */
     public function definition(): array
     {
-        $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-        $ruangan = $this->faker->randomElement(range('A','Z')) . $this->faker->randomDigit(1);
-        $kodeAbsensi = $this->faker->regexify('[A-Za-z0-9]{5}');
+        $nilai = $this->faker->randomElement(['4', '3', '2', '1', '0']);
+        $grade = $this->faker->randomElement(['A', 'B', 'C', 'D', 'E']);
+        $keterangan = $this->faker->randomElement(['Lulus', 'Tidak Lulus']);
         $tahunAkademik = $this->generateTahunAkademik();
+        $semester = $this->faker->randomElement(['Ganjil', 'Genap']);
+
         return [
             'subject_id' => \App\Models\Subject::factory(),
-            'hari' => $this->faker->randomElement($days),
-            'jam_mulai' => $this->faker->time('H:i A'),
-            'jam_selesai' => $this->faker->time('H:i A'),
-            'ruangan' => $ruangan,
-            'kode_absensi' => $kodeAbsensi,
+            'student_id' => \App\Models\User::factory(),
+            'nilai' => $nilai,
+            'grade' => $grade,
+            'keterangan' => $keterangan,
             'tahun_akademik' => $tahunAkademik,
-            'semester' => $this->faker->randomDigit(1),
+            'semester' => $semester,
             'created_by' => $this->faker->name(),
             'updated_by' => $this->faker->name(),
             'deleted_by' => $this->faker->name(),
@@ -37,7 +38,7 @@ class ScheduleFactory extends Factory
 
     protected function generateTahunAkademik()
     {
-        $startYear = $this->faker->year();
+        $startYear = $this->faker->numberBetween(2018, date('Y'));
         $endYear = $startYear + 1;
 
         return $startYear . '/' . $endYear;
