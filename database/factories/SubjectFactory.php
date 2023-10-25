@@ -18,14 +18,22 @@ class SubjectFactory extends Factory
     {
         $tahunAkademik = $this->generateTahunAkademik();
         $semester = $this->faker->randomElement(['Ganjil', 'Genap']);
+        $matkul = $this->faker->randomElement([
+            'Website Berbasis CMS',
+            'Analisa & Desain Web',
+            'Sistem Berkas',
+            'Rekayasa Website',
+            'Web Mobile',
+        ]);
+        $sks = $this->faker->randomElement([1, 2, 3]);
 
 
         return [
             'dosen_id' => \App\Models\User::factory(),
-            'title' => $this->faker->word,
+            'title' => $matkul,
             'semester' => $semester,
             'tahun_akademik' => $tahunAkademik,
-            'sks' => $this->faker->randomDigit(1),
+            'sks' => $sks,
             'kode_matkul' => $this->faker->unique()->regexify('[A-Z]{3}[0-9]{3}'),
             'deskripsi' => $this->faker->paragraph(1),
         ];

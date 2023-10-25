@@ -17,14 +17,17 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $status = ['Luring', 'Daring'];
         $ruangan = $this->faker->randomElement(range('A','Z')) . $this->faker->randomDigit(1);
         $kodeAbsensi = $this->faker->regexify('[A-Za-z0-9]{5}');
         $tahunAkademik = $this->generateTahunAkademik();
         return [
             'subject_id' => \App\Models\Subject::factory(),
+            // 'student_id' => \App\Models\User::factory(),
             'hari' => $this->faker->randomElement($days),
-            'jam_mulai' => $this->faker->time('H:i A'),
-            'jam_selesai' => $this->faker->time('H:i A'),
+            // 'status' => $status,
+            'jam_mulai' => $this->faker->time('H:i'),
+            'jam_selesai' => $this->faker->time('H:i'),
             'ruangan' => $ruangan,
             'kode_absensi' => $kodeAbsensi,
             'tahun_akademik' => $tahunAkademik,

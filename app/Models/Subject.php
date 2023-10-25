@@ -9,7 +9,7 @@ class Subject extends Model
 {
     use HasFactory;
 
-    public function lecturer()
+    public function dosen()
     {
         return $this->belongsTo(User::class);
     }

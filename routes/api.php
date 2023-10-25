@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+//api for get user
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -32,6 +32,11 @@ Route::post('/logout', [AuthController::class, 'logout'])
 //api for get schedules
 Route::apiResource('schedules', ScheduleController::class)
     ->middleware('auth:sanctum');
+
+//api for schedules-2
+// Route::middleware(['auth:sanctum'])->group(function() {
+//     Route::apiResource('schedules', ScheduleController::class);
+// });
 
 //api for Khs
 Route::middleware(['auth:sanctum'])->group(function() {

@@ -11,7 +11,9 @@ class Schedule extends Model
 
     protected $fillable = [
         'subject_id',
+        // 'student_id',
         'hari',
+        // 'status',
         'jam_mulai',
         'jam_selesai',
         'ruangan',

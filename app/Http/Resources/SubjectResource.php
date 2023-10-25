@@ -15,13 +15,13 @@ class SubjectResource extends JsonResource
     public function toArray(Request $request): array
     {
         //display all
-        // return parent::toArray($request);
+        return parent::toArray($request);
 
         //display certain data
-        return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'dosen_id' => $this->dosen_id,
-        ];
+        // return [
+        //     'id' => $this->id,
+        //     'title' => $this->title,
+        //     'dosen_id' => $this->dosen_id,
+        // ];
     }
 }
